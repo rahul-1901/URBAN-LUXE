@@ -1,21 +1,22 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const AuthHandler = ({setIsAuthenticated}) => {
+const PageHandler = ({ setIsAuthenticated }) => {
+
     const navigate = useNavigate();
     const location = useLocation();
 
     useEffect(() => {
         const data = localStorage.getItem("userToken");
-        if(data) {
+        if (data) {
             setIsAuthenticated(true);
-            if(location.pathname === "/login") {
-                navigate('/dashBoard', {replace: false})
+            if (location.pathname === "/login") {
+                navigate('/dashBoard', { replace: false })
             }
         }
     }, [location, navigate, setIsAuthenticated])
 
-  return null;
+    return null;
 }
 
-export default AuthHandler
+export default PageHandler

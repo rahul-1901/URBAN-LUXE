@@ -22,7 +22,7 @@ import DashBoard from '../src/pages/DashBoard';
 import Watches from '../src/pages/Watches';
 import Design from '../src/pages/Design';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import AuthHandler from '../src/components/authHandler';
+import PageHandler from '../src/components/PageHandler';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -42,7 +42,7 @@ function App() {
   return (
     <>
       <Router>
-        <AuthHandler setIsAuthenticated={setIsAuthenticated}/>
+        <PageHandler setIsAuthenticated={setIsAuthenticated}/>
         <ScrollToTop />
         <HideNavbar>
           <Navbar />
