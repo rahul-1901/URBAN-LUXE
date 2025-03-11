@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from '../src/pages/Home';
 import Men from "../src/pages/Men";
@@ -21,12 +21,28 @@ import OrderPlaced from '../src/pages/OrderPlaced';
 import DashBoard from '../src/pages/DashBoard';
 import Watches from '../src/pages/Watches';
 import Design from '../src/pages/Design';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import AuthHandler from '../src/components/authHandler';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const GoogleAuthWrapper = () => {
+    return ( 
+      <GoogleOAuthProvider clientId='301203180369-17fg54ltkb7vh1ti7pjgl0mj48rakn56.apps.googleusercontent.com'>
+        <Login></Login>
+      </GoogleOAuthProvider>
+    )
+  }
+
+  const PrivateRoute = ({element}) => {
+    return isAuthenticated ? element : <Navigate to ="/login"/>
+  }
 
   return (
     <>
       <Router>
+        <AuthHandler setIsAuthenticated={setIsAuthenticated}/>
         <ScrollToTop />
         <HideNavbar>
           <Navbar />
@@ -38,14 +54,14 @@ function App() {
           <Route path="/allTrend" element={<Allitems />} caseSensitive></Route>
           <Route path="/comming" element={<CommingSoon />} caseSensitive></Route>
           <Route path="/about" element={<About />} caseSensitive></Route>
-          <Route path="/login" element={<Login />} caseSensitive></Route>
+          <Route path="/login" element={<GoogleAuthWrapper />} caseSensitive></Route>
           <Route path="/signUp" element={<SignUp />} caseSensitive></Route>
           <Route path="*" element={<NotFound />} caseSensitive></Route>
           <Route path="/cart" element={<Cart />} caseSensitive></Route>
           <Route path="/paymentDetails" element={<Payment />} caseSensitive></Route>
           <Route path="/finalPayment" element={<FinalPayment />} caseSensitive></Route>
           <Route path="/orderPlaced" element={<OrderPlaced />} caseSensitive></Route>
-          <Route path="/dashBoard" element={<DashBoard/>} caseSensitive></Route>
+          <Route path="/dashBoard" element={<PrivateRoute element={<DashBoard/>}/>} caseSensitive></Route>
           <Route path="/watches" element={<Watches/>} caseSensitive></Route>
           <Route path="/luxury" element={<Design/>} caseSensitive></Route>
         </Routes>

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingBag, LogIn } from 'lucide-react';
+import { ShoppingBag, LogIn, Globe } from 'lucide-react';
 import loginShop from "../assets/loginShop.png";
-import { API_BASE_URL } from '../backendApi/api';
+import { API_BASE_URL, googleAuth } from '../backendApi/api';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DashBoard from './DashBoard';
+import {useGoogleLogin} from "@react-oauth/google";
 
 const Login = () => {
     const [userData, setUserData] = useState({
@@ -58,6 +59,31 @@ const Login = () => {
         const { name, value } = e.target;
         setUserData({ ...userData, [name]: value })
     }
+
+    const responseGoogle = async (authResult) => {
+        try {
+            if(authResult['code']) {
+                const result = await googleAuth(authResult['code']);
+                const {email, name} = result.data.user;
+                const token = result.data.token;
+                toast.success("User Logined...", { autoClose: 1000, style: { backgroundColor: "#f3f4f6", color: "#000000" } });
+                setTimeout(() => {
+                    navigate("/dashBoard");
+                }, 2000)
+                // console.log(result.data.user);
+                localStorage.setItem("userToken", token);
+                localStorage.setItem("userEmail", email);
+            }
+        } catch (error) {
+            console.error('Error while req google', error)
+        }
+    }
+
+    const googleLogin = useGoogleLogin({
+        onSuccess: responseGoogle,
+        onError: responseGoogle,
+        flow: 'auth-code'
+    })
 
     return (
         <>
@@ -133,6 +159,8 @@ const Login = () => {
                                 Sign in
                             </button>
                         </form>
+                        <p className='text-center text-xl text-white font-semibold'>Or</p>
+                        <button onClick={googleLogin} className='cursor-pointer bg-gray-200 font-semibold rounded-md px-5 py-2 w-full'>Google Login</button>
                         {/* <button
                             onClick={erconsole}
                             className="w-full py-3 px-4 rounded-lg text-white bg-red-700 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-coral-500 transition-colors cursor-pointer">

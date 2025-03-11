@@ -115,6 +115,8 @@ export const dashBoardDetails = async () => {
     }
 }
 
+export const googleAuth = (code) => axios.get(`${API_BASE_URL}/api/auth/google?code=${code}`)
+
 // export const getWatches = async () => {
 //     try {
 //         const response = await axios.get(`${API_BASE_URL}/api/watches`);
