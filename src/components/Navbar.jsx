@@ -63,7 +63,7 @@ const Navbar = () => {
 
         <div className='navbarLogo flex items-center md:px-1'>
           <Link to="/" className='logoName md:text-2xl text-3xl font-bold'>
-            <img src={urban} className='ml-[-14px] md:ml-[0px] w-45 h-12  md:h-11 md:w-42'></img>
+            <img src={urban} className='ml-[-14px] md:ml-[0px] w-45 h-12  md:h-11 md:w-40'></img>
           </Link>
         </div>
 
