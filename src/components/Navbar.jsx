@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLogin,setIsLogin] = useState(false);
   const navigate = useNavigate();
   const handleExcess = () => {
     if (!localStorage.getItem("userToken")) {
@@ -22,6 +23,19 @@ const Navbar = () => {
     if (localStorage.getItem("userToken")) {
       navigate('/dashBoard')
     } else {
+      navigate('login')
+    }
+  }
+
+
+  const handleDashLogin2 = () => {
+    if (localStorage.getItem("userToken")) {
+      setIsOpen(false);
+      setIsLogin(true);
+      navigate('/dashBoard')
+    } else {
+      setIsOpen(false);
+      setIsLogin(false);
       navigate('login')
     }
   }
@@ -124,12 +138,8 @@ const Navbar = () => {
                 Cart
               </Link>
               <div className='w-54 h-[1px] bg-black'></div>
-              <Link to="/login" className="flex text-3xl linkComponent" onClick={() => { setIsOpen(false) }}>
-                Login
-              </Link>
-              <div className='w-54 h-[1px] bg-black'></div>
-              <Link to="/dashBoard" className="flex text-3xl linkComponent" onClick={() => { setIsOpen(false) }}>
-                DashBoard
+              <Link to="/login" className="flex text-3xl linkComponent" onClick={handleDashLogin2}>
+                {isLogin ? "Login" : "DashBoard"}
               </Link>
             </div>
           </motion.div>
