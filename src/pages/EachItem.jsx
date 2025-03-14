@@ -41,7 +41,7 @@ const EachItem = () => {
         try {
             const response = await purchaseItems(id);
             if (!localStorage.getItem("userToken")) {
-                throw new Error("Login to purchase items...", {cause: "Not logined"} )
+                throw new Error("Login to purchase items...", { cause: "Not logined" })
             } else if (response.success === false || !localStorage.getItem("userToken")) {
                 // return toast.error(response.message);
                 throw new Error(response.message);

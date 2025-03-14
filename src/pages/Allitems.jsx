@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { getClothes } from '../backendApi/api';
 import { Link } from 'react-router-dom';
 import "./Allitems.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Allitems = () => {
     const [allitems, setAllitems] = useState([]);
@@ -120,6 +122,7 @@ const Allitems = () => {
                             )}
                         </div>
                     </div>
+                    <ToastContainer />
                 </div>
             ) : (
                 <div className="min-h-screen flex items-center justify-center mt-[70px]">

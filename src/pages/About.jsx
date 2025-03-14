@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Shield, Clock, Headphones, Users, Heart, Package } from 'lucide-react';
 import aboutUs from "../assets/aboutUs.png";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const bulletPoints = [
     {
@@ -140,6 +142,7 @@ const About = () => {
                             </div>
                         </div>
                     </div>
+                    <ToastContainer/>
                 </div>
             ) : (
                 <div className="min-h-screen flex items-center justify-center mt-[70px]">

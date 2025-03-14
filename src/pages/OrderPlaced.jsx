@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { finalOrderPage, purchasedItems } from '../backendApi/api';
 import { Package, Truck, CreditCard, Calendar, CheckCircle } from 'lucide-react';
 import { Link } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const OrderPlaced = () => {
     const [finalOrderDetails, setFinalOrderDetails] = useState([]);
@@ -127,6 +129,7 @@ const OrderPlaced = () => {
                             </p>
                         </div>
                     </div>
+                    <ToastContainer/>
                 </div>
             ) : (
                 <div className="min-h-screen w-full bg-gray-50 flex flex-col items-center justify-center">
@@ -143,6 +146,7 @@ const OrderPlaced = () => {
                             Please wait while we process your order...
                         </p>
                     </div>
+                    <ToastContainer/>
                 </div>
             )}
         </>

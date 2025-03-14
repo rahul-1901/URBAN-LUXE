@@ -234,7 +234,7 @@ const Watches = () => {
     const [showWatches, setShowWatches] = useState(false);
 
     const handlePurchase = () => {
-        toast.warn("Comming Soon...", { autoClose: 1000, position: "top-center", style: { backgroundColor: "#f3f4f6", color: "#000000" } })
+        toast.warn("Coming Soon...", { autoClose: 1000, position: "top-center", style: { backgroundColor: "#f3f4f6", color: "#000000" } })
     }
 
     useEffect(() => {

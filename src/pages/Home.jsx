@@ -5,6 +5,8 @@ import "./Home.css";
 import { Loader2, Star } from 'lucide-react';
 import { bestSellers, getClothes } from '../backendApi/api';
 import "../components/animate.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
     const [isShaking, setIsShaking] = useState(false);
@@ -223,6 +225,7 @@ const Home = () => {
                             <div className='boxBlur'></div>
                         </div>
                     </div>
+                    <ToastContainer/>
                 </div>
             ) : (
                 <div className="min-h-screen flex items-center justify-center mt-[70px]">
