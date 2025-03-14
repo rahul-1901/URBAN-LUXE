@@ -3,6 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { dashBoardDetails } from '../backendApi/api';
+import { jwtDecode } from "jwt-decode";
 
 const DashBoard = () => {
     const [userData, setUserData] = useState({});
@@ -31,8 +32,29 @@ const DashBoard = () => {
         // console.log(localStorage)
     }
 
+    const jwtExpire = () => {
+        try {
+            const token = localStorage.getItem("userToken");
+            if(token) {
+                const decode = jwtDecode(token); //jwt-decode basically decode entire jwtToken and give details of user what we provided, in jsonObject
+                const currentTime = Math.floor(Date.now()/1000);
+
+                if(decode.exp < currentTime) //expTime =  issuedAT + what we provided to jwt in backend, it is in seconds by default, even though we have provided in hour in backend 
+                {
+                    handleLogout();
+                }
+            }
+        } catch (error) {
+            console.error("error");
+        }
+    }
+
     useEffect(() => {
         userDetai();
+        jwtExpire();    
+
+        const interval = setInterval(jwtExpire, 60 * 1000);
+        return () => clearInterval(interval); 
     }, [])
 
     return (
