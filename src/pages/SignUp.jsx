@@ -90,7 +90,7 @@ const SignUp = () => {
 
                         <div>
                             <label htmlFor="password" className="block text-sm font-medium text-gray-900">
-                                Password
+                                Create Password
                             </label>
                             <input
                                 type="password"

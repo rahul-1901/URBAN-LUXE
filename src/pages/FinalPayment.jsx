@@ -130,7 +130,7 @@ const FinalPayment = () => {
                     <div className={`w-full ${isFreeShipping ? 'bg-green-100' : 'bg-amber-100'} transition-all duration-300`}>
                         <div className="max-w-7xl mx-auto px-4 py-3 sm:px-6 lg:px-8">
                             <div className="flex items-center justify-center">
-                                <div className={`flex-shrink-0 flex items-center ${isFreeShipping ? 'text-green-600' : 'text-amber-600'}`}>
+                                <div className={`flex-shrink-0 flex items-center ${isFreeShipping ? 'text-green-600' : 'text-amber-600'} mt-2`}>
                                     <Truck className="h-5 w-5 mr-1.5" />
                                     <p className="font-medium text-sm sm:text-base">
                                         {isFreeShipping

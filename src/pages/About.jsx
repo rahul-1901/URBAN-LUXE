@@ -50,7 +50,7 @@ const About = () => {
     return (
         <>
             {loader ? (
-                <div className="min-h-screen bg-white mt-[70px]">
+                <div className="min-h-screen mt-[70px]">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                         <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div className="space-y-6">
@@ -110,7 +110,7 @@ const About = () => {
                         </div>
                     </div>
 
-                    <div className="py-16 bg-white">
+                    <div className="py-16">
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                                 {ourNumbers.map((stat, index) => (

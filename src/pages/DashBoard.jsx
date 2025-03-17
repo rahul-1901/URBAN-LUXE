@@ -35,13 +35,19 @@ const DashBoard = () => {
     const jwtExpire = () => {
         try {
             const token = localStorage.getItem("userToken");
-            if(token) {
+            if (token) {
                 const decode = jwtDecode(token); //jwt-decode basically decode entire jwtToken and give details of user what we provided, in jsonObject
-                const currentTime = Math.floor(Date.now()/1000);
+                const currentTime = Math.floor(Date.now() / 1000);
 
-                if(decode.exp < currentTime) //expTime =  issuedAT + what we provided to jwt in backend, it is in seconds by default, even though we have provided in hour in backend 
+                if (decode.exp < currentTime) //expTime =  issuedAT + what we provided to jwt in backend, it is in seconds by default, even though we have provided in hour in backend 
                 {
-                    handleLogout();
+                    localStorage.removeItem("userToken");
+                    localStorage.removeItem("userEmail");
+                    toast.success("Logout successfull...", { autoClose: 800, style: { backgroundColor: "#f3f4f6", color: "#000000" } })
+                    setTimeout(() => {
+                        navigate('/login');
+                        window.location.reload();
+                    }, 2000)
                 }
             }
         } catch (error) {
@@ -51,10 +57,10 @@ const DashBoard = () => {
 
     useEffect(() => {
         userDetai();
-        jwtExpire();    
+        jwtExpire();
 
         const interval = setInterval(jwtExpire, 60 * 1000);
-        return () => clearInterval(interval); 
+        return () => clearInterval(interval);
     }, [])
 
     return (

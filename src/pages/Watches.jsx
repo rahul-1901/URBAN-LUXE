@@ -246,7 +246,7 @@ const Watches = () => {
     return (
         <div>
             {showWatches ? (
-                <div >
+                <div className='bg-white'>
                     <div className="relative h-[100vh] mt-[70px]">
                         <div className="absolute inset-0">
                             <video
@@ -294,7 +294,7 @@ const Watches = () => {
                         <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 mb-2 mt-10 animateAppear">Men's Collection</h2>
                         <div className='flex flex-wrap justify-around mb-20'>
                             {allWatches.slice(7, 12).map((item) => (
-                                <div className='container mt-10 h-63 w-80 overflow-hidden  animateAppear'>
+                                <div className='container mt-10 h-63 w-80 overflow-hidden animateAppear'>
                                     <div className='card w-full h-full overflow-hidden'>
                                         <div className='cardImg overflow-hidden h-54 cursor-pointer' onClick={handlePurchase}>
                                             <img

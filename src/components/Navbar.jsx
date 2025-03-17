@@ -9,11 +9,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLogin,setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
   const handleExcess = () => {
     if (!localStorage.getItem("userToken")) {
-      toast.error("Login first...", { autoClose: 1000, style: { backgroundColor: "#f3f4f6", color: "#000000" }})
+      toast.error("Login first...", { autoClose: 1000, style: { backgroundColor: "#f3f4f6", color: "#000000" } })
     } else {
       navigate('/cart');
     }
@@ -49,7 +49,7 @@ const Navbar = () => {
         navigate('/login');
       }, 2000)
     } else {
-      toast.warn("User not Logined...", {autoClose: 1000, style: { backgroundColor: "#f3f4f6", color: "#000000" }});
+      toast.warn("User not Logined...", { autoClose: 1000, style: { backgroundColor: "#f3f4f6", color: "#000000" } });
     }
     // if(localStorage.getItem("userToken")) {
     //     console.log(localStorage.getItem("userToken"));
@@ -59,7 +59,7 @@ const Navbar = () => {
 
   return (
     <div className='navbarBody w-full top-0 left-0 fixed z-9999'>
-      <div className='navbarContent mx-auto shadow-md p-5 bg-gray-100'>
+      <div className='navbarContent mx-auto shadow-md p-5 bg-gray-100 h-[75px]'>
 
         <div className='navbarLogo flex items-center md:px-1'>
           <Link to="/" className='logoName md:text-2xl text-3xl font-bold'>
@@ -69,19 +69,34 @@ const Navbar = () => {
 
         <div className='navbarRoutes md:flex items-center text-xl hidden'>
           <Link to="/" className='routeMain'>
-            Home
+            <p className='text-gray-700 hover:text-gray-900 relative group'>
+              Home
+              <div className="w-full bg-black h-0.5 bottom-[-1px] rounded-lg left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-out absolute"></div>
+            </p>
           </Link>
           <Link to="/watches" className='routeMain'>
-            Accessories
+            <p className='text-gray-700 hover:text-gray-900 relative group'>
+              Accessories
+              <span className='w-full bg-black h-0.5 bottom-[-1px] rounded-lg left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-out absolute'></span>
+            </p>
           </Link>
           <Link to="/allTrend" className='routeMain'>
-            Collection
+            <p className='text-gray-700 hover:text-gray-900 relative group'>
+              Collection
+              <span className='w-full bottom-[-1px] left-0 h-0.5 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-out absolute'></span>
+            </p>
           </Link>
           <Link to="/luxury" className='routeMain'>
-            Luxury
+            <p className='text-gray-700 hover:text-gray-900 relative group'>
+              Luxury
+              <span className='w-full bottom-[-1px] left-0 h-0.5 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-out absolute'></span>
+            </p>
           </Link>
           <Link to="/about" className='routeMain'>
-            About
+            <p className='text-gray-700 hover:text-gray-900 relative group'>
+              About
+              <span className='w-full bottom-[-1px] left-0 h-0.5 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-out absolute'></span>
+            </p>
           </Link>
         </div>
 
