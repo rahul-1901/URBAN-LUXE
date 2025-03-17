@@ -45,10 +45,10 @@ const Home = () => {
         <>
             {showitems ? (
                 <div>
-                    <div className='startPart flex md:bg-[69%_25%] bg-center mt-[70px] h-[100vh]'>
-                        <div className='attention text-white z-200 flex flex-col items-center md:mt-10'>
-                            <h1 className='md:text-5xl text-4xl text-gray-100'>Summer Collection</h1>
-                            <p className='md:text-2xl text-xl text-gray-100'>Discover the latest trends</p>
+                    <div className='startPart flex bg-[59%_25%] md:bg-[69%_25%] mt-[70px] h-[100vh] justify-center md:justify-start'>
+                        <div className='attention text-white z-200 flex flex-col items-center md:items-start md:mt-10 ml-5'>
+                            <h1 className='md:text-5xl text-4xl'>Summer Collection</h1>
+                            <p className='md:text-2xl text-xl'>Discover the latest trends</p>
                             <motion.button
                                 onClick={() => {
                                     setIsShaking(true);
@@ -60,7 +60,7 @@ const Home = () => {
                                 }}
                                 animate={isShaking ? { x: [-5, 5, -5, 5, 0] } : {}}
                                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                                className='mt-3 cursor-pointer rounded-sm'
+                                className='mt-3 cursor-pointer rounded-2xl w-40'
                             >
                                 Shop Now
                             </motion.button>
@@ -68,7 +68,7 @@ const Home = () => {
                         <div className='blurLayer flex top-0 left-0' />
                     </div>
 
-                    <div className='diffSection flex flex-wrap mt-24 gap-12'>
+                    <div className='diffSection flex flex-wrap mt-15 gap-12'>
                         <Link to="/comming">
                             <div className='redSec animateAppear'>
                                 <div className='firstBlur flex flex-col'>

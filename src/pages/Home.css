@@ -1,10 +1,9 @@
 .startPart {
-    background-image: url('../assets/homeStart.png');
+    background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
     background-size: cover;
     background-repeat: no-repeat;
     /* background-position: 69% 25%; */
     position: relative;
-    justify-content: center;
     align-items: center;
 }
 
@@ -20,19 +19,16 @@
     font-weight: 700;
 }
 
-.attention p {
-    font-weight: 500;
-}
-
 .attention button {
-    background-color: rgba(252, 250, 250, 0.762);
+    background-color: rgba(252, 250, 250, 0.908);
     color: black;
     font-weight: 500;
-    padding: 7px;
-    width: 100px;
+    padding: 8px;
+    transition: 0.2s ease;
 }
 
 .attention button:hover {
+    transform: rotateX(-10deg) rotateY(15deg);
     background-color: rgba(255, 255, 255, 0.421);
     color: white;
 }
@@ -299,7 +295,7 @@
 }
 
 .womenBox {
-    background-image: url("../assets/womenBox.png");
+    background-image: url("../assets/homeStart.png");
     background-size: cover;
     background-position: 69%;
     background-repeat: no-repeat;

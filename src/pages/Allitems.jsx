@@ -104,7 +104,7 @@ const Allitems = () => {
                         <div className='headerAll'>
                             <div className='text-center text-3xl flex items-center'><span className='latest'>ALL</span> COLLECTIONS <div className='spanLine2 ml-1'></div></div>
                         </div>
-                        <div className='itemsHere flex flex-wrap gap-12'>
+                        <div className='itemsHere flex flex-wrap gap-10'>
                             {filteredItems.length > 0 ? (
                                 filteredItems.map((dress) => (
                                     <div className='dress1 lg:h-[320px] lg:w-[250px] mt-7 animateAppear' key={dress._id}>

@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DashBoard from './DashBoard';
 import {useGoogleLogin} from "@react-oauth/google";
+import googleLogo from "../assets/googleLogo.png";
 
 const Login = () => {
     const [userData, setUserData] = useState({
@@ -160,7 +161,7 @@ const Login = () => {
                             </button>
                         </form>
                         <p className='text-center text-xl text-white font-semibold'>Or</p>
-                        <button onClick={googleLogin} className='cursor-pointer bg-gray-200 font-semibold rounded-md px-5 py-2 w-full'>Google Login</button>
+                        <button onClick={googleLogin} className='cursor-pointer font-semibold flex items-center justify-center gap-2 bg-gray-100 rounded-md px-5 py-2 w-full h-10'><img src={googleLogo} className='h-full'/>Google Login</button>
                         {/* <button
                             onClick={erconsole}
                             className="w-full py-3 px-4 rounded-lg text-white bg-red-700 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-coral-500 transition-colors cursor-pointer">
