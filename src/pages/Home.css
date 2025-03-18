@@ -40,8 +40,8 @@
 }
 
 .redSec{
-    height: 450px;
-    width: 320px;
+    height: 430px;
+    width: 300px;
     background-image: url('../assets/luxury.png');
     background-position: center;
     background-size: cover;
@@ -77,8 +77,8 @@
 }
 
 .secSec{
-    height: 450px;
-    width: 320px;
+    height: 430px;
+    width: 300px;
     background-image: url('../assets/seasonal.png');
     background-position: center;
     background-size: cover;
@@ -104,8 +104,8 @@
 }
 
 .thirdSec{
-    height: 450px;
-    width: 320px;
+    height: 430px;
+    width: 300px;
     background-image: url('../assets/accessories.png');
     background-position: center;
     background-size: cover;
@@ -170,7 +170,6 @@
     align-items: center;
     justify-content: center;
     color: rgb(33, 38, 48);
-    font-weight: 600;
 }
 
 .latest {
@@ -185,8 +184,8 @@
 }
 
 .dress {
-    height: 320px;
-    width: 250px;
+    height: 330px;
+    width: 245px;
 }
 
 .dress p {

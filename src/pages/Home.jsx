@@ -70,9 +70,9 @@ const Home = () => {
 
                     <div className='diffSection flex flex-wrap mt-15 gap-12'>
                         <Link to="/comming">
-                            <div className='redSec animateAppear'>
+                            <div className='redSec animateAppear rounded-sm'>
                                 <div className='firstBlur flex flex-col'>
-                                    {/* <p className='text-xl'>Luxury Collection</p> */}
+                                    <p className='text-xl'>Jacket's Collection</p>
                                     <Link to="/comming">
                                         <p className='text-xl'>Shop</p>
                                     </Link>
@@ -80,9 +80,9 @@ const Home = () => {
                             </div>
                         </Link>
                         <Link to="/luxury">
-                            <div className='secSec animateAppear'>
+                            <div className='secSec animateAppear rounded-sm'>
                                 <div className='first1Blur flex flex-col'>
-                                    {/* <p className='text-xl'>Luxury Collection</p> */}
+                                    <p className='text-xl'>Luxury Collection</p>
                                     <Link to="/luxury">
                                         <a className='text-xl underLine'>Shop</a>
                                     </Link>
@@ -90,9 +90,9 @@ const Home = () => {
                             </div>
                         </Link>
                         <Link to="/watches">
-                            <div className='thirdSec animateAppear'>
+                            <div className='thirdSec animateAppear rounded-sm'>
                                 <div className='first2Blur flex flex-col'>
-                                    {/* <p className='text-xl'>Luxury Collection</p> */}
+                                    <p className='text-xl'>Watches Collection</p>
                                     <Link to="/watches">
                                         <a className='text-xl'>Shop</a>
                                     </Link>
@@ -136,7 +136,7 @@ const Home = () => {
                                     }}
                                     animate={isShaking ? { x: [-5, 5, -5, 5, 0] } : {}}
                                     transition={{ duration: 0.6, ease: "easeInOut" }}
-                                    className='mt-3 cursor-pointer p-3 mt-8 animateAppear'
+                                    className='mt-3 cursor-pointer p-3 mt-8 animateAppear rounded-sm'
                                 >
                                     Explore Collection
                                 </motion.button>
@@ -191,8 +191,8 @@ const Home = () => {
                                         <Star key={i} className="w-4 md:w-5 h-4 md:h-5 fill-current text-yellow-400" />
                                     ))}
                                 </div>
-                                <p className='text-gray-500'>"Absolutely love the quality and craftsmanship! 
-                                    Every piece feels premium, and the customer service was beyond helpful. 
+                                <p className='text-gray-500'>"Absolutely love the quality and craftsmanship!
+                                    Every piece feels premium, and the customer service was beyond helpful.
                                     Will be a returning customer!"</p>
                                 <p className='mt-2 ml-1'>-Dakshita Sharma</p>
                             </div>
@@ -202,9 +202,9 @@ const Home = () => {
                                         <Star key={i} className="w-4 md:w-5 h-4 md:h-5 fill-current text-yellow-400" />
                                     ))}
                                 </div>
-                                <p className='text-gray-500'>"Exceeded my expectations! 
-                                    The material feels luxurious, and the design is flawless. 
-                                    Plus, the team was super responsive. 
+                                <p className='text-gray-500'>"Exceeded my expectations!
+                                    The material feels luxurious, and the design is flawless.
+                                    Plus, the team was super responsive.
                                     Definitely a five-star experience!"</p>
                                 <p className='mt-2 ml-1'>-Disha</p>
                             </div>
@@ -225,7 +225,7 @@ const Home = () => {
                             <div className='boxBlur'></div>
                         </div>
                     </div>
-                    <ToastContainer/>
+                    <ToastContainer />
                 </div>
             ) : (
                 <div className="min-h-screen flex items-center justify-center mt-[70px]">
