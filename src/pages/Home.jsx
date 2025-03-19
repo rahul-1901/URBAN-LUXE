@@ -108,7 +108,7 @@ const Home = () => {
                         </div>
                         <div className='clothesCollection flex-wrap px-10'>
                             {clothes.slice(0, 8).map((dress) => (
-                                <div className='dress mt-7 animateAppear' key={dress._id}>
+                                <div className='dress1 mt-7 animateAppear' key={dress._id}>
                                     <Link to={`/item/${dress._id}`}>
                                         <div className='cloth'>
                                             <img src={dress.image} className='image'></img>
@@ -121,7 +121,7 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className='newSeason flex flex-wrap mt-35 mb-25 md:p-12 p-10'>
+                    <div className='newSeason flex flex-wrap mt-35 mb-30 md:p-12 p-10'>
                         <div className='leftSide flex flex-col md:p-10 md:w-[52%]'>
                             <p className='new1 text-4xl animateAppear'>New Season Arrival</p>
                             <p className='new2 text-2xl mt-3 animateAppear'>Get ready for the changing season with our latest collection. Up to 40% off on selected items.</p>
@@ -147,11 +147,11 @@ const Home = () => {
                     </div>
 
                     <div className=''>
-                        <div className='boundLine flex animateAppear'>
+                        {/* <div className='boundLine flex animateAppear'>
                             <p className='text-center text-3xl'><span className='latest'>BEST</span> SELLERS</p>
                             <div className='spanLine ml-2'></div>
-                        </div>
-                        <div className='clothesCollection mt-10 flex-wrap'>
+                        </div> */}
+                        {/* <div className='clothesCollection mt-10 flex-wrap'>
                             {bestSeller.slice(0, 4).map((bestItems) => (
                                 <div className='dress animateAppear' key={bestItems._id}>
 
@@ -164,10 +164,25 @@ const Home = () => {
                                     <p className='font-bold'>${bestItems.price}</p>
                                 </div>
                             ))}
+                        </div> */}
+                        <div className="banner banner-main">
+                            <div className="slider3D" style={{ "--quantity": 6 }}>
+                                {bestSeller.slice(0, 6).map((bestItems, index) => (
+                                    <div className="items3D" style={{ "--position": index + 1 }} key={bestItems._id}>
+                                        <Link to={`/item/${bestItems._id}`}>
+                                            <img src={bestItems.image} />
+                                        </Link>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className='boundLine flex animateAppear'>
+                                <p className='text-center text-4xl'><span className='latest'>BEST</span> SELLERS</p>
+                                <div className='spanLine ml-2'></div>
+                            </div>
                         </div>
                     </div>
 
-                    <div className='mt-45 bg-gray-50 p-5'>
+                    <div className='mt-40 bg-gray-50 p-5'>
                         <div className='flex customerRe md:mt-10 mt-8 animateAppear'>
                             <p className='md:text-4xl text-3xl'>
                                 What Our Customers Say
