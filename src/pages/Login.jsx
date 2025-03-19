@@ -10,7 +10,7 @@ import DashBoard from './DashBoard';
 import {useGoogleLogin} from "@react-oauth/google";
 import googleLogo from "../assets/googleLogo.png";
 
-const Login = () => {
+const Login = ({handleDashLogin2}) => {
     const [userData, setUserData] = useState({
         email: "",
         password: ""

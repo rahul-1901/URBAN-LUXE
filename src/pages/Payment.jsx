@@ -41,7 +41,7 @@ const Payment = () => {
                 setDeliveryData((prev) => ({ ...prev, email: storedEmail }));
                 try {
                     const data = await finalOrderPage();
-                    console.log(data)
+                    // console.log(data)
                     if (data.email === storedEmail) {
                         setDeliveryData((prev) => ({
                             ...prev,
@@ -52,7 +52,7 @@ const Payment = () => {
                         console.warn("No delivery details found");
                     }
                 } catch (error) {
-                    console.log(error);
+                    console.log("Error...");
                 }
             }
         };

@@ -19,9 +19,9 @@ const EachItem = () => {
             setTimeout(() => {
                 setItemShow(response);
             }, 2000);
-            console.log(response);
+            // console.log(response);
         } catch (error) {
-            console.error("error(frontend...");
+            console.error("Error...");
         }
     }
 
@@ -47,7 +47,7 @@ const EachItem = () => {
                 throw new Error(response.message);
             } else {
                 toast.success(response.message, { autoClose: 1000, style: { backgroundColor: "#f3f4f6", color: "#000000" } })
-                console.log(response.purchasedClothes)
+                // console.log(response.purchasedClothes)
             }
         } catch (error) {
             toast.error(error.message, { autoClose: 1000, style: { backgroundColor: "#f3f4f6", color: "#000000" } });

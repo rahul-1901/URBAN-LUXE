@@ -20,7 +20,7 @@ const Cart = () => {
             setTimeout(() => {
                 setJustLoader(true);
             }, 1000)
-            console.log(response)
+            // console.log(response)
         } catch (error) {
             console.log("Error fetching from frontend side...")
         }
@@ -64,7 +64,7 @@ const Cart = () => {
 
     const handleProceedButton = () => {
         localStorage.removeItem("orderStatus");
-        console.log(localStorage);
+        // console.log(localStorage);
         setTimeout(() => {
             navigate("/paymentDetails")
         }, 500)

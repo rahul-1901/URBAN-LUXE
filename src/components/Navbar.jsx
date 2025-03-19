@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { ShoppingCart, Search, User, X, Menu, LogOut } from 'lucide-react';
+import { ShoppingCart, Search, User, X, Menu, LogOut, Home, Shirt, Watch, ShoppingBag, Info, LayoutDashboard } from 'lucide-react';
 import { AnimatePresence, motion } from "framer-motion";
 import "./Navbar.css";
 import urban from "../assets/urbanSec.png";
@@ -46,6 +46,7 @@ const Navbar = () => {
       localStorage.removeItem("userEmail");
       toast.success("Logout successfull...", { autoClose: 1000, style: { backgroundColor: "#f3f4f6", color: "#000000" } })
       setTimeout(() => {
+        setIsLogin(false);
         navigate('/login');
       }, 2000)
     } else {
@@ -56,6 +57,10 @@ const Navbar = () => {
     // }
     // console.log(localStorage)
   }
+
+    useEffect(() => {
+      setIsLogin(!!localStorage.getItem("userToken"));
+    }, [navigate]);
 
   return (
     <div className='navbarBody w-full top-0 left-0 fixed z-9999'>
@@ -126,35 +131,29 @@ const Navbar = () => {
             animate={{ x: "0%" }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.4 }}
-            className="fixed h-[100vh] md:hidden smallNavbar w-54 bg-gray-100"
+            className="fixed h-[100vh] md:hidden smallNavbar shadow-lg w-70 bg-gray-100"
           >
-            <div className="text-xl smallContent md:hidden">
-              <Link to="/" className="flex text-3xl mt-5 linkComponent" onClick={() => { setIsOpen(false) }}>
-                Home
+            <div className="text-xl smallContent md:hidden ml-5">
+              <Link to="/" className="flex text-3xl mt-5 linkComponent items-center gap-2" onClick={() => { setIsOpen(false) }}>
+                <Home className='' />Home
               </Link>
-              <div className='w-54 h-[1px] bg-black'></div>
-              <Link to="/allTrend" className="flex text-3xl linkComponent" onClick={() => { setIsOpen(false) }}>
-                Collection
+              <Link to="/allTrend" className="flex text-3xl linkComponent items-center gap-2" onClick={() => { setIsOpen(false) }}>
+                <Shirt className='' />Collection
               </Link>
-              <div className='w-54 h-[1px] bg-black'></div>
-              <Link to="/watches" className="flex text-3xl linkComponent" onClick={() => { setIsOpen(false) }}>
-                Accessories
+              <Link to="/watches" className="flex text-3xl linkComponent items-center gap-2" onClick={() => { setIsOpen(false) }}>
+                <Watch className='' />Accessories
               </Link>
-              <div className='w-54 h-[1px] bg-black'></div>
-              <Link to="/luxury" className="flex text-3xl linkComponent" onClick={() => { setIsOpen(false) }}>
-                Luxury
+              <Link to="/luxury" className="flex text-3xl linkComponent items-center gap-2" onClick={() => { setIsOpen(false) }}>
+                <ShoppingBag />Luxury
               </Link>
-              <div className='w-54 h-[1px] bg-black'></div>
-              <Link to="/about" className="flex text-3xl linkComponent" onClick={() => { setIsOpen(false) }}>
-                About
+              <Link to="/about" className="flex text-3xl linkComponent items-center gap-2" onClick={() => { setIsOpen(false) }}>
+                <Info />About
               </Link>
-              <div className='w-54 h-[1px] bg-black'></div>
-              <Link to="/cart" className="flex text-3xl linkComponent" onClick={() => { setIsOpen(false) }}>
-                Cart
+              <Link to="/cart" className="flex text-3xl linkComponent items-center gap-2" onClick={() => { setIsOpen(false) }}>
+                <ShoppingCart />Cart
               </Link>
-              <div className='w-54 h-[1px] bg-black'></div>
               <Link to="/login" className="flex text-3xl linkComponent" onClick={handleDashLogin2}>
-                {isLogin ? "Login" : "DashBoard"}
+                {!isLogin ? <div className='flex items-center gap-2'><User />Register</div> : <div className='flex items-center gap-2'><LayoutDashboard />DashBoard</div>}
               </Link>
             </div>
           </motion.div>

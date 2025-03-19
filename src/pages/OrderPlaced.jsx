@@ -17,9 +17,9 @@ const OrderPlaced = () => {
             setTimeout(() => {
                 setShowLoader(true);
             }, 600)
-            console.log(response)
+            // console.log(response)
         } catch (error) {
-            console.log("error");
+            console.log("Error...");
         }
     }
 

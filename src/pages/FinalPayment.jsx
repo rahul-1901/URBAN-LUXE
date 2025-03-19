@@ -46,7 +46,7 @@ const FinalPayment = () => {
         } else {
             const shippingPrice = Math.round((subTotal * 8) / 100);
             setShipping(shippingPrice);
-            console.log(shippingPrice);
+            // conso7le.log(shippingPrice);
         }
     }, [subTotal])
 
@@ -56,7 +56,7 @@ const FinalPayment = () => {
         } else if (localStorage.getItem("orderStatus") === "placed") {
             setOrderStatus(true);
         }
-        console.log(localStorage.getItem("orderStatus"))
+        // console.log(localStorage.getItem("orderStatus"))
     }
 
     const handleOrderPlaced = () => {
