@@ -58,9 +58,9 @@ const Navbar = () => {
     // console.log(localStorage)
   }
 
-    useEffect(() => {
-      setIsLogin(!!localStorage.getItem("userToken"));
-    }, [navigate]);
+  useEffect(() => {
+    setIsLogin(!!localStorage.getItem("userToken"));
+  }, [navigate]);
 
   return (
     <div className='navbarBody w-full top-0 left-0 fixed z-9999'>
@@ -106,15 +106,30 @@ const Navbar = () => {
         </div>
 
         <div className='shoppingIcons md:flex items-center text-xl hidden'>
-          <button onClick={() => handleDashLogin()} className='cursor-pointer'>
-            <User />
-          </button>
-          <button onClick={() => handleExcess()} className='cursor-pointer'>
-            <ShoppingCart />
-          </button>
-          <button onClick={() => handleLogout()} className='cursor-pointer'>
-            <LogOut />
-          </button>
+          <div className='relative group mt-2'>
+            <button onClick={() => handleDashLogin()} className='cursor-pointer'>
+              <User />
+            </button>
+            <div className='absolute bg-gray-700 text-white left-1/2 -translate-x-1/2 mt-1 text-sm px-1 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity'>
+              Account
+            </div>
+          </div>
+          <div className='relative group mt-2'>
+            <button onClick={() => handleExcess()} className='cursor-pointer'>
+              <ShoppingCart />
+            </button>
+            <div className='absolute bg-gray-700 text-white left-1/2 -translate-x-1/2 mt-1 text-sm px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity'>
+              Cart
+            </div>
+          </div>
+          <div className='relative group mt-2'>
+            <button onClick={() => handleLogout()} className='cursor-pointer'>
+              <LogOut />
+            </button>
+            <div className='absolute bg-gray-700 text-white left-1/2 -translate-x-1/2 mt-1 text-sm px-1 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity'>
+              LogOut
+            </div>
+          </div>
         </div>
 
         <div className='flex md:hidden items-center'>

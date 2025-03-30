@@ -165,8 +165,8 @@ const Home = () => {
                                 </div>
                             ))}
                         </div> */}
-                        <div className="banner banner-main">
-                            <div className="slider3D" style={{ "--quantity": 6 }}>
+                        <div className="banner banner-main animateAppear">
+                            <div className="slider3D animateAppear" style={{ "--quantity": 6 }}>
                                 {bestSeller.slice(0, 6).map((bestItems, index) => (
                                     <div className="items3D" style={{ "--position": index + 1 }} key={bestItems._id}>
                                         <Link to={`/item/${bestItems._id}`}>
