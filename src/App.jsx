@@ -29,7 +29,7 @@ function App() {
 
   const GoogleAuthWrapper = () => {
     return ( 
-      <GoogleOAuthProvider clientId={import.meta.env.GOOGLE_ID}>
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_ID}>
         <Login></Login>
       </GoogleOAuthProvider>
     )
